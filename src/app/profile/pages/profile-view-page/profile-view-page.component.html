@@ -1,0 +1,3 @@
+<ng-container *ngfor="data$ | async as data">
+  <app-profile-view [data]="data === 'xxx' ? undefined : data" />
+</ng-container>
