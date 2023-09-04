@@ -1,0 +1,12 @@
+<dl *ngIf="data; else noData">
+  <ng-container *ngFor="let items of data; let sectionIndex = index">
+    <dt>
+      <a [routerLink]="[sectionIndex]"> Section {{ sectionIndex + 1 }}</a>
+    </dt>
+    <dd>{{ getResult(items).toLocaleString() }}</dd>
+  </ng-container>
+</dl>
+
+<ng-template #noData>
+  <div>No Data</div>
+</ng-template>

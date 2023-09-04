@@ -1,0 +1,51 @@
+<form [formGroup]="formGroup">
+  <ng-container formArrayName="data">
+  <button type="button" (click)="addSection()">Add Section</button>
+  <section
+    *ngFor="
+      let formArray of formGroup.controls.data.controls;
+      let sectionIndex = index
+    "
+    [formArrayName]="sectionIndex"
+  >
+    <header>
+      <button type="button" (click)="addInput(formArray)">Add</button>
+      <h2>
+        Section <span>{{ sectionIndex + 1 }}</span>
+      </h2>
+      <button
+        type="button"
+        [disabled]="formGroup.controls.data.controls.length === 1"
+        (click)="removeSection(sectionIndex)"
+      >
+        X
+      </button>
+    </header>
+    <div>
+      <ng-container
+        *ngFor="let formControl of formArray.controls; let inputIndex = index"
+      >
+        <label for="app-in-{{ sectionIndex }}-{{ inputIndex }}">
+          Input {{ inputIndex + 1 }}
+        </label>
+        <input
+          id="app-in-{{ sectionIndex }}-{{ inputIndex }}"
+          type="number"
+          [formControlName]="inputIndex"
+        />
+
+        <button
+          type="button"
+          [disabled]="formArray.length === 1"
+          (click)="removeInput(formArray, inputIndex)"
+        >
+          X
+        </button>
+      </ng-container>
+        <label for="app-in-result-{{ sectionIndex}}">result</label>
+        <output id="app-in-result-{{ sectionIndex}}"> {{ getResult(formArray).toLocaleString() }} </output>
+        <span></span>
+    </div>
+  </section>
+</ng-container>
+</form>

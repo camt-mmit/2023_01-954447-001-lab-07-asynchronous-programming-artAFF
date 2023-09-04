@@ -14,5 +14,5 @@ export class ProfileViewPageComponent {
   private readonly profileData = inject(ProfileDataService);
   protected readonly data$ = this.profileData
     .getDate()
-    .then((value) => value ?? 'xxx');
+    .then((value) => value ?? ('xxx' as const));
 }

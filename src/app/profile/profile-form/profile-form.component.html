@@ -1,30 +1,34 @@
 <form [formGroup]="formGroup">
   <div>
-    <label for="app-inp-student-id">Student ID</label>
-    <label
-      for="app-inp-student-id"
+    <label for="app-inp-student-Id">Student ID</label>
+    <input
+      for="app-inp-student-Id"
       type="text"
-      formGroupName="studnetId"
-    ></label>
+      formControlName="studentId"
+    />
 
-    <label for="app-inp-fristname">Firstname</label>
-    <label
-      for="app-inp-fristname"
+    <label for="app-inp-firstname">Firstname</label>
+    <input
+      for="app-inp-firstname"
       type="text"
-      formGroupName="firstname"
-    ></label>
+      formControlName="firstname"
+    />
 
     <label for="app-inp-lastname">Lastname</label>
-    <label for="app-inp-lastname" type="text" formGroupName="lastname"></label>
+    <input
+      for="app-inp-lastname"
+      type="text"
+      formControlName="lastname"
+    />
 
     <label for="app-inp-age">Age</label>
-    <label for="app-inp-age" type="text" formGroupName="age"></label>
+    <input for="app-inp-age" type="text" formControlName="age"/>
 
     <label for="app-inp-autobiography:">Autobioraphy</label>
     <textarea
       for="app-inp-autobiography:"
       type="text"
-      formGroupName="autobiography:"
+      formControlName="autobiography"
       row="10"
     ></textarea>
 

@@ -49,7 +49,7 @@ export class ProfileFormComponent implements OnInit {
       lastname: [this.data?.lastname ?? ''],
       age: [this.data?.age ?? 0],
       autobiography: [this.data?.autobiography ?? ''],
-      friend: this.fb.array(this.data?.friends ?? []),
+      friends: this.fb.array(this.data?.friends ?? []),
     });
 
     this.formGroup.valueChanges
@@ -63,8 +63,8 @@ export class ProfileFormComponent implements OnInit {
     this.formGroup.controls['friends'].push(this.fb.control(''));
   }
 
-  protected removeFriend(): void {
-    this.formGroup.controls['friends'].removeAt(index);
+  protected removeFriend(i: number): void {
+    (this.formGroup.get('friends') as FormArray).removeAt(i);
   }
 
   protected moveFriend(index: number, shift: -1 | 1): void {
